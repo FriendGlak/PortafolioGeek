@@ -3,7 +3,9 @@ import GlobalStyle from '../globalStyles.js';
 import Header from '../components/Header.jsx';
 import Navbar from '../components/Navbar.jsx';
 import Home from '../pages/Home/Home.js';
+import "../images/image1.png";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Footer from '../components/Footer.jsx';
 
 
 const App = () => {
@@ -16,6 +18,7 @@ const App = () => {
           <Route path="/" exact component={Home} />
         </Switch>
       </Header>
+      <Footer />
     </Router>
   );
 };
