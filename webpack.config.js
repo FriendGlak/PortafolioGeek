@@ -3,6 +3,7 @@ const path = require('path');
 //Plugin que instalamos.
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const svgToMiniDataURI = require('mini-svg-data-uri');
 
 module.exports = {
     //Entrada , cual va a ser mi elemento principal, punto de entrada
@@ -52,6 +53,29 @@ module.exports = {
                     'css-loader',
                 ],
             },
+            {
+                test: /\.(png|jpg|gif|svg)$/i,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.svg$/i,
+                use: [
+                  {
+                    loader: 'url-loader',
+                    options: {
+                      generator: (content) => svgToMiniDataURI(content.toString()),
+                    },
+                  },
+                ]
+            }
+
         ],
     },
     //Agregar plugin que instalamos para entender el archivo index y el que vamos a generar en la carpeta dist para enviar a produccion.
