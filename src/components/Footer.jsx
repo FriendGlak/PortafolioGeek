@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from '../globalStyles'
-
 import { FaFacebook, FaTwitter, FaGithub, FaLinkedin } from 'react-icons/fa';
 import {
     FooterContainer,
