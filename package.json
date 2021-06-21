@@ -33,7 +33,7 @@
     "start": "webpack serve --mode development",
     "predeploy" : "npm run build",
     "deploy" : "gh-pages -d build",
-    "build" : "webpack mode --mode production"
+    "build" : "webpack --mode production"
   },
   "repository": {
     "type": "git",
