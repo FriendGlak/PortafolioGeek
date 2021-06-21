@@ -22,6 +22,7 @@ const Navbar = () => {
     const [button, setButton] = useState(true);
 
     const handleClick = () => setClick(!click)
+    const closeMobileMenu = () => setClick(false);
 
     const showButton = () => {
         if (window.innerWidth <= 960) {
@@ -36,13 +37,13 @@ const Navbar = () => {
     }, [])
 
     window.addEventListener('resize', showButton);
-    
+
     return (
         <>
             <IconContext.Provider value={{ color: '#fff' }}>
                 <Nav>
                     <NavbarContainer>
-                        <NavLogo to="/">
+                        <NavLogo to="/inicio" onClick={closeMobileMenu}>
                             <NavIcon />
                             GLAK
                         </NavLogo>
@@ -51,16 +52,19 @@ const Navbar = () => {
                         </MobileIcon>
                         <NavMenu onClick={handleClick} click={click}>
                             <NavItem>
-                                <NavLinks to='/'>Presentación</NavLinks>
+                                <NavLinks to='/inicio' onClick={closeMobileMenu}>
+                                    Presentación
+                                </NavLinks>
                             </NavItem>
                             <NavItem>
-                                <NavLinks to='/'>Proyectos</NavLinks>
+                                <NavLinks to='/proyects' onClick={closeMobileMenu}>
+                                    Proyectos
+                                </NavLinks>
                             </NavItem>
                             <NavItem>
-                                <NavLinks to='/'>Testimonios</NavLinks>
-                            </NavItem>
-                            <NavItem>
-                                <NavLinks to='/'>Contactos</NavLinks>
+                                <NavLinks to='/testimonios' onClick={closeMobileMenu}>
+                                    Testimonios
+                                </NavLinks>
                             </NavItem>
                             <NavItemBtn>
                                 {button ? (
@@ -69,7 +73,7 @@ const Navbar = () => {
                                     </NavBtnLink>
                                 ) : (
                                     <NavBtnLink to="/curriculum">
-                                        <Button fontBig primary>Curriculum</Button>
+                                        <Button onClick={closeMobileMenu} fontBig primary>Curriculum</Button>
                                     </NavBtnLink>
                                 )}
                             </NavItemBtn>

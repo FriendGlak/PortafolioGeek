@@ -36,22 +36,22 @@ const Footer = () => {
                     </Form>
                     <SocialMedia>
                         <SocialMediaWrap>
-                            <SocialLogo to="/">
+                            <SocialLogo to="/inicio">
                                 <SocialIcon />
                                 GLAK
                             </SocialLogo>
                             <WebsiteRights>CON AMOR ❤ © GLAK 2021</WebsiteRights>
                             <SocialIcons>
-                                <SocialIconLink href='/' target="_blank" aria-label="Facebook">
+                                <SocialIconLink href='https://www.facebook.com/BlueGlakYeti/' target="blank" aria-label="Facebook">
                                     <FaFacebook />
                                 </SocialIconLink>
-                                <SocialIconLink href='/' target="_blank" aria-label="Twitter">
+                                <SocialIconLink href='https://twitter.com/camilojheans' target="blank" aria-label="Twitter">
                                     <FaTwitter />
                                 </SocialIconLink>
-                                <SocialIconLink href='/' target="_blank" aria-label="Github">
+                                <SocialIconLink href='https://github.com/FriendGlak' target="blank" aria-label="Github">
                                     <FaGithub />
                                 </SocialIconLink>
-                                <SocialIconLink href='/' target="_blank" aria-label="LinkedIn">
+                                <SocialIconLink href='https://www.linkedin.com/in/juan-camilo-vel%C3%A1squez-amarillo-556115215/' target="blank" aria-label="LinkedIn">
                                     <FaLinkedin />
                                 </SocialIconLink>                             
                             </SocialIcons>

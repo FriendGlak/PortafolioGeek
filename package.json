@@ -1,4 +1,5 @@
 {
+  "homepage":"https://friendglak.github.io/PortafolioGeek/",
   "name": "portafoliogeek",
   "version": "1.0.0",
   "description": "¡Un maravilloso portafolio!",
@@ -25,10 +26,14 @@
   },
   "devDependencies": {
     "file-loader": "^6.2.0",
+    "gh-pages": "^3.2.2",
     "url-loader": "^4.1.1"
   },
   "scripts": {
-    "start": "webpack serve --mode development"
+    "start": "webpack serve --mode development",
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d build",
+    "build" : "webpack mode --mode production"
   },
   "repository": {
     "type": "git",
@@ -38,6 +43,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/FriendGlak/PortafolioGeek/issues"
-  },
-  "homepage": "https://github.com/FriendGlak/PortafolioGeek#readme"
+  }
 }
