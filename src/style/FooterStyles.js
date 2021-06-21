@@ -88,6 +88,7 @@ const SocialLogo = styled(Link)`
     cursor: pointer;
     text-decoration: none;
     font-size: 2rem;
+    font-family: 'Shadows Into Light', cursive;
     display: flex;
     align-items: center;
     margin-bottom: 16px;

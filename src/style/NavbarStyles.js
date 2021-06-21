@@ -72,7 +72,7 @@ const NavMenu = styled.ul`
     }
 `;
 
-const NavItem = styled.li`
+const NavItem = styled.div`
     height: 80px;
    
     &:hover {
@@ -109,7 +109,7 @@ const NavLinks = styled(Link)`
     }
 `;
 
-const NavItemBtn = styled.li`
+const NavItemBtn = styled.div`
     @media (max-width: 960px){
     	display: flex;
         justify-content: center;
@@ -119,7 +119,7 @@ const NavItemBtn = styled.li`
     }
 `;
 
-const NavBtnLink = styled.li`
+const NavBtnLink = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
