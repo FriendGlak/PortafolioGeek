@@ -18,7 +18,7 @@ import Footer from '../components/Footer.jsx';
 
 const App = () => {
   return (
-    <HashRouter basename="/">
+    <HashRouter basename="/inicio">
       <Router>
         <GlobalStyle />
         <ScrollToTop />
