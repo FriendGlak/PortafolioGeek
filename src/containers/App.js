@@ -12,28 +12,29 @@ import "../images/testimonial/testimonial3.png"
 import "../images/testimonial/testimonial4.png"
 import "../images/testimonial/testimonial5.png"
 import "../images/testimonial/testimonial6.png"
-import { BrowserRouter as Router, Switch, Route, Redirect, HashRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Footer from '../components/Footer.jsx';
 
 
 const App = () => {
   return (
-    <HashRouter basename="/inicio">
-      <Router>
-        <GlobalStyle />
-        <ScrollToTop />
-        <Navbar />
-        <Switch>
-          <Route exact path="/">
-            <Redirect to="/inicio" component={Home} />
-          </Route>
-          <Route path='/inicio' exact component={Home} />
-          <Route path='/proyects' component={Proyect} />
-          <Route path='/testimonios' component={Testimonials} />
-        </Switch>
-        <Footer />
-      </Router >
-    </HashRouter>
+    <Router>
+      <GlobalStyle />
+      <ScrollToTop />
+      <Navbar />
+      <Switch>
+        <Route exact path="/PortafolioGeek/">
+          <Redirect to="/inicio" component={Home} />
+        </Route>
+        <Route exact path="/">
+          <Redirect to="/inicio" component={Home} />
+        </Route>
+        <Route path='/inicio' exact component={Home} />
+        <Route path='/proyects' component={Proyect} />
+        <Route path='/testimonios' component={Testimonials} />
+      </Switch>
+      <Footer />
+    </Router >
   );
 };
 

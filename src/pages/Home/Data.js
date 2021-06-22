@@ -13,5 +13,4 @@ const homeObjOne = {
 };
 
 
-
 export { homeObjOne}

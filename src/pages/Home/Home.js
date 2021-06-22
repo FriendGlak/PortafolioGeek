@@ -6,7 +6,7 @@ import Presentation from '../../components/Presentation.jsx';
 const Home = () => {
     return (
         <>
-            <Presentation {...homeObjOne} />
+            <Presentation {...homeObjOne} />          
         </>
     );
 };
