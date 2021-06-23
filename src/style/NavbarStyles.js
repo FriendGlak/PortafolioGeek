@@ -19,7 +19,6 @@ const NavbarContainer = styled(Container)`
     display: flex;
     justify-content: space-between;
     height: 80px;
-
     ${Container}
 `;
 
@@ -74,9 +73,10 @@ const NavMenu = styled.ul`
 
 const NavItem = styled.div`
     height: 80px;
-   
+    padding-bottom: 8px;
+  
     &:hover {
-        border-bottom: 2px solid #101011;
+        border-bottom: 2px solid #F2AD60;
     }
 
     @media (max-width: 960px){
@@ -95,6 +95,7 @@ const NavLinks = styled(Link)`
     text-decoration: none;
     padding: 0.5rem 1rem;
     height: 100%;
+    
 
     @media (max-width: 960px){
     	text-align: center;
