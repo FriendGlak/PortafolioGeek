@@ -37,6 +37,7 @@ const Form = styled.form`
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
     @media screen and (max-width: 820px) {
         flex-direction: column;
@@ -49,7 +50,32 @@ const FormInput = styled.input`
     border-radius: 2px;
     margin-right: 10px;
     outline: none;
+    width: 300px;
+    margin-bottom: 20px;
+    
     border: none;
+    font-size: 16px;
+    border: 1px solid #fff;
+
+    &::placeholder{
+        color: #242424;
+    }
+
+    @media screen and (max-width: 820px){
+        width: 100%;
+        margin: 0 0 16px 0;
+    }
+
+`;
+
+const FormTextArea = styled.textarea`
+    padding: 10px 20px;
+    border-radius: 2px;
+    margin-right: 10px;
+    outline: none;
+    border: none;
+    width: 300px;
+    margin-bottom: 20px;
     font-size: 16px;
     border: 1px solid #fff;
 
@@ -127,5 +153,6 @@ export {
     SocialIcons,
     SocialIconLink,
     SocialLogo,
-    SocialMediaWrap
+    SocialMediaWrap,
+    FormTextArea
 };

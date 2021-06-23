@@ -12,7 +12,7 @@ import {
     NavItem,
     NavLinks,
     NavBtnLink,
-    NavItemBtn
+    NavItemBtn,
 } from '../style/NavbarStyles';
 
 

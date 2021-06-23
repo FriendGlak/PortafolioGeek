@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import { Button } from '../globalStyles'
 import { FaFacebook, FaTwitter, FaGithub, FaLinkedin } from 'react-icons/fa';
 import {
@@ -14,11 +15,69 @@ import {
     WebsiteRights,
     SocialIcons,
     SocialIconLink,
-    SocialIcon
+    SocialIcon,
+    FormTextArea
 
 } from '../style/FooterStyles';
 
 const Footer = () => {
+    const [status, setStatus] = useState({
+        submitted: false,
+        submitting: false,
+        info: { error: false, msg: null }
+    })
+    const [inputs, setInputs] = useState({
+        email: '',
+        message: ''
+    })
+    const handleServerResponse = (ok, msg) => {
+        if (ok) {
+            setStatus({
+                submitted: true,
+                submitting: false,
+                info: { error: false, msg: msg }
+            })
+            setInputs({
+                email: '',
+                message: ''
+            })
+        } else {
+            setStatus({
+                info: { error: true, msg: msg }
+            })
+        }
+    }
+    const handleOnChange = e => {
+        e.persist()
+        setInputs(prev => ({
+            ...prev,
+            [e.target.id]: e.target.value
+        }))
+        setStatus({
+            submitted: false,
+            submitting: false,
+            info: { error: false, msg: null }
+        })
+    }
+    const handleOnSubmit = e => {
+        e.preventDefault()
+        setStatus(prevStatus => ({ ...prevStatus, submitting: true }))
+        axios({
+            method: 'POST',
+            url: 'https://formspree.io/f/mgerygvz',
+            data: inputs
+        })
+            .then(response => {
+                handleServerResponse(
+                    true,
+                    'Gracias, tu mensaje ha sido enviado.'
+                )
+            })
+            .catch(error => {
+                handleServerResponse(false, error.response.data.error)
+            })
+    }
+
     return (
         <>
             <FooterContainer>
@@ -29,11 +88,31 @@ const Footer = () => {
                     <FooterSubText>
                         Puedes hacerlo, cuando desees.
                     </FooterSubText>
-                    <Form>
-                        <FormInput name="user" type="name" placeholder="Tú nombre" />
-                        <FormInput name="email" type="email" placeholder="Tú correo electrónico" />
-                        <Button fontBig>Contáctame</Button>
+                    <Form onSubmit={handleOnSubmit}>
+                        <FormInput id="email"
+                            type="email"
+                            name="_replyto"
+                            onChange={handleOnChange}
+                            required
+                            value={inputs.email} placeholder="Tú correo electrónico" />
+
+                        <FormTextArea id="message"
+                            name="message"
+                            onChange={handleOnChange}
+                            required
+                            value={inputs.message} placeholder="Mensaje" />
+
+                        <Button type="submit" disabled={status.submitting} fontBig>
+                            {!status.submitting
+                                ? !status.submitted
+                                    ? 'Enviar'
+                                    : 'Enviado'
+                                : 'Enviando...'}</Button>
                     </Form>
+                    {status.info.error && (
+                        <div className="error">Error: {status.info.msg}</div>
+                    )}
+                    {!status.info.error && status.info.msg && <p>{status.info.msg}</p>}
                     <SocialMedia>
                         <SocialMediaWrap>
                             <SocialLogo to="/inicio">
@@ -53,7 +132,7 @@ const Footer = () => {
                                 </SocialIconLink>
                                 <SocialIconLink href='https://www.linkedin.com/in/juan-camilo-vel%C3%A1squez-amarillo-556115215/' target="blank" aria-label="LinkedIn">
                                     <FaLinkedin />
-                                </SocialIconLink>                             
+                                </SocialIconLink>
                             </SocialIcons>
                         </SocialMediaWrap>
                     </SocialMedia>
